@@ -78,11 +78,19 @@ class Markov:
 
     def pick_words(self):
         word = 'the'
-        rand = random.random()
-        print(self.word_count)
-        print(self.word_count_inv)
-        for row in self.prob_matrix:
-
+        # print(self.word_count_inv)
+        for _ in range(0,30):
+            for i in self.prob_matrix:
+                print(word)
+                for item in range(0, len(i)):
+                    rand = random.random()
+                    print(item, rand)
+                    prev_val = i[item-1]
+                    current = i[item]
+                    if prev_val <= rand >= current:
+                        print(self.word_count_inv[item])
+                print(" ")
+            # row = row + 1
 
 
 # How to read this? Well, the top row represents bigrams beginning with the word “the”.
